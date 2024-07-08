@@ -8,4 +8,4 @@ Ayrıca proje çalıştıktan sonra otomatik olarak 1 admin ve 1 kütüphane gö
 
 Admin hesabı kullanıcı adı: admin@prizma.com şifre: Admin.1234
 Görevli hesabı kullanıcı adı: officer@prizma.com şifre: Officer.1234
-Admin, Officer ve User rolleri eklenecektir.
+Roller: Admin, Officer ve User.
