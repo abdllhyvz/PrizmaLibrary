@@ -1,0 +1,36 @@
+﻿@{
+    Layout = "_OfficerLayout";
+}
+@model List<Rental>
+
+<div class="container mt-5">
+    <div class="card" style="background-color:#F6F5EC;">
+        <div class="card-body">
+            <h2 class="mb-4">Kiralananlar</h2>
+            <table class="table table-striped table-bordered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Kitap</th>
+                        <th scope="col">Kiralayan</th>
+                        <th scope="col">Alış Tarihi</th>
+                        <th scope="col">İade Tarihi</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.Book.Title</td>
+                            <td>@item.User.Email / @item.User.PhoneNumber</td>
+                            <td>@item.RentDate</td>
+                            <td>@item.ReturnDate</td>
+
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>

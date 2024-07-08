@@ -1,0 +1,88 @@
+﻿@{
+    Layout = null;
+}
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PrizmaKütüphane Giriş</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/LibraryManagementMVC.styles.css" asp-append-version="true" />
+</head>
+<style>
+    body {
+        background-image: url('/images/bg.png');
+        background-size: cover; 
+        background-repeat: no-repeat; 
+        background-attachment: fixed; 
+        background-position: center; 
+    }
+
+</style>
+<body>
+    <div class="container">
+        <main role="main" class="pb-3">
+            <section class="vh-100">
+                <div class="container py-5 h-100">
+                    <div class="row d-flex justify-content-center align-items-center h-100">
+                        <div class="col col-xl-10">
+                            <div class="card" style="border-radius: 1rem;background-color:F6F5EC;">
+                                <div class="row g-0">
+                                    <div class="col-md-6 col-lg-5 d-flex align-items-center justify-content-center">
+                                        <img src="~/images/logoprizma.png"
+                                             alt="login form" class="img-fluid" style="border-radius: 1rem 0 0 1rem; max-height: 100%; max-width: 100%;" />
+                                    </div>
+                                    <div class="col-md-6 col-lg-7 d-flex align-items-center">
+                                        <div class="card-body p-4 p-lg-5 text-black">
+
+                                            <form action="/Login" method="post">
+
+                                                <div class="d-flex align-items-center mb-3 pb-1">
+                                                    <span class="h1 fw-bold mb-0">Prizma Kütüphane</span>
+                                                </div>
+
+                                                <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Devam etmek için lütfen giriş yapın</h5>
+
+                                                <div data-mdb-input-init class="form-outline mb-4">
+                                                    <label class="form-label" for="form2Example17">Email</label>
+
+                                                    <input type="email" id="form2Example17" class="form-control form-control-lg" name="Email" required/>
+                                                </div>
+
+                                                <div data-mdb-input-init class="form-outline mb-4">
+                                                    <label class="form-label" for="form2Example27">Şifre</label>
+
+                                                    <input type="password" id="form2Example27" class="form-control form-control-lg" name="Password" required/>
+                                                </div>
+
+                                                <div class="pt-1 mb-4">
+                                                    <button data-mdb-button-init data-mdb-ripple-init class="btn btn-dark btn-lg btn-block" type="submit">Giriş</button>
+                                                </div>
+
+                                                <a href="/Register" style="color: #393f81;">Kaydol</a>
+                                            </form>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+    $(document).ready(function () {
+        if ('@ViewBag.error' != "") {
+            Swal.fire({
+                icon: "error",
+                title: '@ViewBag.error',
+            });
+        }
+    });
+</script>

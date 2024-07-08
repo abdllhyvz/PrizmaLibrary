@@ -1,0 +1,33 @@
+﻿@{
+    Layout = "_Layout";
+}
+@model List<Rental>
+
+<div class="container mt-5">
+    <div class="card" style="background-color:#F6F5EC;">
+        <div class="card-body">
+            <h2 class="mb-4">İade</h2>
+            <table class="table table-striped table-bordered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Kitap</th>
+                        <th scope="col">Alış Tarihi</th>
+                        <th scope="col">İade</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.Book.Title</td>
+                            <td>@item.RentDate</td>
+                            <td><a class="btn btn-primary" href="/Home/Return?id=@item.Id&bookid=@item.Book.Id">İade</a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>

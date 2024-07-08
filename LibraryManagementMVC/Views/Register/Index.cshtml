@@ -1,0 +1,85 @@
+﻿@{
+    Layout = null;
+}
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PrizmaKütüphane - Kaydol</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/LibraryManagementMVC.styles.css" asp-append-version="true" />
+</head>
+<style>
+    body {
+        background-image: url('/images/bg.png');
+        background-size: cover; 
+        background-repeat: no-repeat; 
+        background-attachment: fixed; 
+        background-position: center; 
+    }
+
+</style>
+<section class="h-100">
+    <div class="container">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col">
+                <div class="card card-registration my-4" style="background-color:F6F5EC;">
+                    <div class="row g-0">
+                        <div class="col-md-6 col-lg-5 d-flex align-items-center justify-content-center">
+                            <img src="~/images/logoprizma.png"
+                                 alt="login form" class="img-fluid" style="border-radius: 1rem 0 0 1rem; max-height: 100%; max-width: 100%;" />
+                        </div>
+                        <div class="col-xl-6">
+                            <form action="/Register" method="post">
+                                <div class="card-body p-md-5 text-black">
+                                    <h3 class="mb-5 text-uppercase">Prizma Kütüphane'ye Kaydol</h3>
+
+                                    <div class="row">
+
+                                        <div class="col-md-6 mb-4">
+                                            <div data-mdb-input-init class="form-outline">
+                                                <input type="email" id="mail" class="form-control form-control-lg" name="Email" required />
+                                                <label class="form-label" for="mail">Mail</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb-4">
+                                            <div data-mdb-input-init class="form-outline">
+                                                <input type="password" id="password" class="form-control form-control-lg" name="Password" required />
+                                                <label class="form-label" for="password">Şifre</label>
+                                                <p>(En az 1 büyük harf, rakam ve özel karakter barındırmalıdır.)</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="d-flex justify-content-end pt-3">
+                                        <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-warning btn-lg ms-2">Kaydol</button>
+                                    </div>
+
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+    $(document).ready(function () {
+        if ('@ViewBag.error' != "") {
+            Swal.fire({
+                icon: "error",
+                title: '@ViewBag.error',
+            });
+        } else if ('@ViewBag.success' != "") {
+            Swal.fire({
+                icon: "success",
+                title: '@ViewBag.success',
+            });
+        }
+    });
+</script>

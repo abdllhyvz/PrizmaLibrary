@@ -1,0 +1,45 @@
+﻿@{
+    Layout = "_OfficerLayout";
+}
+@model List<Book>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+<div class="container mt-5">
+    <div class="card" style="background-color:#F6F5EC;">
+        <div class="card-body">
+            <h2 class="mb-4">Kitaplar</h2>
+            <table class="table table-striped table-bordered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Kitap Adı</th>
+                        <th scope="col">Yazar</th>
+                        <th scope="col">Açıklama</th>
+                        <th scope="col">Durum</th>
+                        <th scope="col">Sil</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.Title</td>
+                            <td>@item.Author</td>
+                            <td>@item.Description</td>
+                            @if (item.IsAvailable)
+                            {
+                                <td>Uygun</td>
+                            }
+                            else
+                            {
+                                <td>Dolu</td>
+                            }
+                            <td><a href="/Officer/Delete?id=@item.Id"><i class="fas fa-trash-alt"></i></a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,91 @@
+﻿@{
+    Layout = "_Layout";
+}
+
+<style>
+
+        .search-container {
+            display: flex;
+            align-items: center;
+            justify-content:center;
+            gap: 10px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            background-color:#F6F5EC;
+        }
+        .search-container input[type="text"] {
+            width: 600px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        .search-container form {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        .search-container select {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        .search-container button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            background-color: #007bff;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .search-container button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+<div id="loadingOverlay" style="display:none;">
+    <div class="overlay-content">
+        <div class="spinner-border text-primary" role="status">
+            <span class="sr-only">Yükleniyor...</span>
+        </div>
+        <p>Yükleniyor...</p>
+    </div>
+</div>
+    <div class="search-container">
+            <input type="text" placeholder="Ara..." name="searchText" id="searchText">
+            <select name="filterType" id="filterType">
+                <option value="bookName">Kitap Adı</option>
+                <option value="author">Yazar</option>
+            </select>
+            <button type="submit" onclick="search()">ARA</button>
+
+    </div>
+    <br />
+    <div id="BookPartial"></div>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+<script>
+    function search() {
+        $('#loadingOverlay').show();
+
+        var searchText = document.getElementById("searchText").value;
+        var filterType = document.getElementById("filterType").value;
+        $.ajax({
+            url:'/Home/SearchBook',
+            type:'GET',
+            data: {
+                searchText:searchText,
+                filterType:filterType
+            },
+            success: function (result) {
+                $("#BookPartial").html(result);
+                $('#loadingOverlay').hide();
+
+            },
+        })
+    }
+</script>

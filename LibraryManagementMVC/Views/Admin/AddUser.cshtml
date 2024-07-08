@@ -1,0 +1,42 @@
+﻿@{
+    Layout = "_AdminLayout";
+}
+@model List<rolesmodel.RolesModel>
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card" style="background-color:#F6F5EC;">
+                <div class="card-header">
+                    <h4>Kullanıcı Ekle</h4>
+                </div>
+                <div class="card-body">
+                    <form action="/Admin/AddUser" method="post">
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" class="form-control" id="email" placeholder="Email" name="Email" required>
+                        </div>
+                        <br />
+                        <div class="form-group">
+                            <label for="password">Şifre</label>
+                            <input type="password" class="form-control" id="password" placeholder="Şifre" name="Password" required>
+                        </div>
+                        <br />
+                        <div class="form-group">
+                            <label for="role">Rol</label>
+                            <select class="form-control" id="role" name="Role">
+                                @foreach(var item in Model)
+                                {
+                                    <option value="@item.Name">@item.Name</option>
+
+                                }
+                            </select>
+                        </div>
+                        <br />
+                        <button type="submit" class="btn btn-primary">Oluştur</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

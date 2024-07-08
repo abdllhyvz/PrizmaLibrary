@@ -1,0 +1,28 @@
+﻿@{
+    Layout = "_AdminLayout";
+}
+@model List<usersresponsemodel.UsersResponseModel>
+
+<div class="container mt-5">
+    <div class="card" style="background-color:#F6F5EC;">
+        <div class="card-body">
+            <h2 class="mb-4">Kullanıcılar</h2>
+            <table class="table table-striped table-bordered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Email</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td><a href="/Admin/EditUser?mail=@item.Email">@item.Email</a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+</div>

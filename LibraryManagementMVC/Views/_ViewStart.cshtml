@@ -1,0 +1,14 @@
+﻿@{
+    if (User.Claims.Any(c => c.Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/role" && c.Value.Contains("Admin")))
+    {
+        Layout = "_AdminLayout";
+    }
+    else if (User.Claims.Any(c => c.Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/role" && c.Value.Contains("Officer")))
+    {
+        Layout = "_OfficerLayout";
+    }
+    else if (User.Claims.Any(c => c.Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/role" && c.Value.Contains("User")))
+    {
+        Layout = "_Layout";
+    }
+}

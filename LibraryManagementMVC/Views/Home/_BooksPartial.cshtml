@@ -1,0 +1,35 @@
+﻿@model List<Book>
+
+    <div class="card" style="background-color:#F6F5EC;">
+        <div class="card-body">
+        <table class="table table-striped table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Kitap Adı</th>
+                    <th scope="col">Yazar</th>
+                    <th scope="col">Açıklama</th>
+                    <th scope="col">Durum</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Title</td>
+                        <td>@item.Author</td>
+                        <td>@item.Description</td>
+                        @if (item.IsAvailable)
+                        {
+                            <td><a class="btn btn-success" href="/Home/RentBook?bookId=@item.Id">Ödünç Al</a></td>
+                        }
+                        else
+                        {
+                            <td>Dolu</td>
+                        }
+                    </tr>
+                }
+            </tbody>
+        </table>
+        </div>
+    </div>
