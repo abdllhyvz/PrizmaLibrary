@@ -1,6 +1,6 @@
 # PrizmaLibrary
 
-Projeyi çalıştırmadan önce LibraryManagementService(backend tarafı) altındaki appsettings.json dosyasında bulunan connectionstring e kendi veritabanı kullanıcı adınızı ve şifrenizi yazmayı unutmayınız.
+Projeyi çalıştırmadan önce LibraryManagement(backend tarafı) altındaki appsettings.json dosyasında bulunan connectionstring e kendi veritabanı kullanıcı adınızı ve şifrenizi yazmayı unutmayınız.
 
 Herhangi bir migration yapmanıza gerek yoktur projeyi çalıştırdığınızda otomatik migration yapıp veritabanını oluşturacaktır.
 
